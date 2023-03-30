@@ -1,0 +1,132 @@
+//crear el proyecto y utilizar esta parte del codigo (no copiar, no detecta codigo copiado), si tienes problemas en ejecución
+
+//no modificar el import, mucho menos las demas librerias solo trabajé en esta parte.
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+           principal()
+        }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+
+fun AppBar()
+    {
+    TopAppBar(title =  {Text(text = "IMAGENES PRINCIPALES DEL REY: ")},
+        backgroundColor = Color.Black,
+        contentColor = Color.White)
+        
+
+    }
+@Preview(showBackground = true)
+@Composable
+
+fun principal() {
+
+   LazyColumn(){
+       items(1){
+           Column(Modifier.fillMaxSize())
+           {
+           AppBar()
+
+
+               Box(
+                   contentAlignment = Alignment.Center,
+                   modifier = Modifier
+                       .height(80.dp)
+                       .fillMaxSize()
+                       .padding(vertical = 10.dp)
+                       .background(color = Color.Green)
+               )
+               {
+                   Text(
+                       text = "LIONEL MESSI",
+                       fontWeight = FontWeight.Bold,
+                       fontSize = 35.sp,
+                       color = Color.Blue
+                   );
+
+               }
+
+
+               Box(
+
+                   modifier = Modifier
+                       .height(200.dp)
+                       .fillMaxSize()
+               )
+               {
+                   AsyncImage(
+                       model = ImageRequest.Builder(LocalContext.current)
+                           .data("https://imagenes.elpais.com/resizer/elGQL0GmeUTR_xUL3rrpOkMVwx8=/1960x1470/filters:focal(1745x609:1755x619)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/7G364PMCSFGIHFZNHHJLNQL4SU.jpg")
+                           .transformations(CircleCropTransformation())
+                           .build(),
+                       contentDescription = null,
+                       modifier = Modifier.fillMaxSize()
+                   )
+
+
+               }
+
+               Box(
+                   contentAlignment = Alignment.Center,
+                   modifier = Modifier
+                       .padding(vertical = 10.dp)
+
+                       .fillMaxSize()
+               )
+
+               {
+                   Text(
+                       text = "MESSI",
+                       fontSize = 18.sp,
+                       fontWeight = FontWeight.Bold
+                   )
+
+               }
+
+               Box(
+
+                   modifier = Modifier
+                       .height(200.dp)
+                       .fillMaxSize()
+               )
+
+               {
+                   AsyncImage(
+                       model = ImageRequest.Builder(LocalContext.current)
+                           .data("https://cnnespanol.cnn.com/wp-content/uploads/2022/12/GettyImages-1448994148.jpeg?quality=100&strip=info")
+                           .transformations(CircleCropTransformation())
+                           .build(),
+                       contentDescription = null,
+                       modifier = Modifier.fillMaxSize()
+                   )
+               }
+
+               Box(
+                   contentAlignment = Alignment.Center,
+                   modifier = Modifier
+                       .padding(vertical = 10.dp)
+
+                       .fillMaxSize()
+               )
+
+               {
+                   Text(
+                       text = "MESSI 10",
+                       fontSize = 18.sp,
+                       fontWeight = FontWeight.Bold
+                   )
+
+               }
+
+           }
+       }
+   }
+
+
+}
